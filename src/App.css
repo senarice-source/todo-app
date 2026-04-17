@@ -1,0 +1,86 @@
+body {
+  background-color: #0f0f0f;
+  color: white;
+}
+
+.container{
+  display: flex;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.left,
+.right{
+  width: 50%;
+  min-width: 0;
+}
+
+h1,h2,li {
+  color: white;
+}
+
+button {
+  background: #e63946;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.delete_button{
+  background-color: #0f0f0f;
+}
+
+li{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.todo-text{
+  flex: 1;
+  text-align: left;
+}
+
+.reverse_button{
+  background-color: #0f0f0f;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.progress{
+  position: absolute;
+  left: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.percentage{
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+.percentage.low{
+  font-size: 20px;
+  color: #e63946;
+}
+
+.percentage.middle{
+  font-size: 28px;
+  color: #f4a261;
+}
+
+.percentage.high{
+  font-size: 36px;
+  color: #2a9d8f;
+}
