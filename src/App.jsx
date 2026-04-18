@@ -9,7 +9,11 @@ function App() {
     const [ToDo,setToDo] = useState([])
     const [error,setError] = useState('')
     const [DoNe,setDoNe] = useState([])
-    const per = (DoNe.length / (DoNe.length + ToDo.length)) * 100
+    const total = DoNe.length + ToDo.length
+    const per = 
+      total === 0
+      ? 0
+      : Math.floor((DoNe.length / total) * 100)
 
   return (
     <>
@@ -44,6 +48,7 @@ function App() {
           setError('入力してください')
           return
         }
+        setError('')
         setToDo([...ToDo,textarea])
         settextarea('')
       }}>
