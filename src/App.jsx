@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
@@ -6,9 +6,23 @@ import './App.css'
 
 function App() {
     const [textarea,settextarea] = useState('')
-    const [ToDo,setToDo] = useState([])
+    const [ToDo,setToDo] = useState(() => {
+      const saved = localStorage.getItem('ToDo')
+      return saved ? JSON.parse(saved) : []
+    })
     const [error,setError] = useState('')
-    const [DoNe,setDoNe] = useState([])
+    const [DoNe,setDoNe] = useState(() => {
+      const saved = localStorage.getItem('DoNe')
+      return saved ? JSON.parse(saved) : []
+    })
+
+    useEffect(() => {
+      localStorage.setItem('ToDo',JSON.stringify(ToDo))},[ToDo])
+  
+    useEffect(() => {
+      localStorage.setItem('DoNe',JSON.stringify(DoNe))
+    },[DoNe])
+
     const total = DoNe.length + ToDo.length
     const per = 
       total === 0
