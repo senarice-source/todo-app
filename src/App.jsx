@@ -5,6 +5,45 @@ import heroImg from './assets/hero.png'
 import './App.css'
 
 function App() {
+    useEffect(() => {
+      const now = new Date()
+
+      //今日の日付(YYYY-MM-DD)
+      const today = now.toISOString().split('T')[0]
+
+      //現在の時刻(時間)
+      const hour = now.getHours()
+
+      //前回処理日
+      const lastProceessed = localStorage.getItem('lastProcessedDate')
+
+      console.log(hour)
+
+      if (hour >= 3 && lastProceessed !== today){
+
+        
+        const history = JSON.parse(localStorage.getItem('history')) || []
+
+        //外のrateをそのまま使う
+        history.push({
+          date: today,
+          ToDo,
+          DoNe,
+          rate
+        })
+
+        localStorage.setItem('history',JSON.stringlify(history))
+
+        setToDo([])
+        setDoNe([])
+
+        localStorage.setItem('lastProcessedDate')
+
+      }
+
+    },[])
+
+
     const [textarea,settextarea] = useState('')
     const [ToDo,setToDo] = useState(() => {
       const saved = localStorage.getItem('ToDo')
